@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prom Coast | South Gippsland Travel & Accommodation</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-mountain-sun"></i> Prom <span>Coast</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#explore" class="active">Explore Region</a></li>
+                    <li><a href="#map-section">Interactive Map</a></li>
+                    <li><a href="#things-to-do">Things to Do</a></li>
+                    <li><a href="#stay">Where to Stay</a></li>
+                    <li><a href="#planner">Trip Planner</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#stay" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge"><i class="fa-solid fa-location-dot"></i> South Gippsland, Victoria</span>
+            <h1>Discover Wilsons Prom & The Scenic Coast</h1>
+            <p>From rugged granite peaks to pristine white beaches and charming country towns, plan your perfect South Gippsland escape.</p>
+            
+            <!-- Custom Personalized Booking Bar Widget -->
+            <div class="booking-widget-bar">
+                <div class="widget-field">
+                    <label><i class="fa-solid fa-map-location-dot"></i> Destination / Town</label>
+                    <select id="searchTown">
+                        <option value="all">All South Gippsland</option>
+                        <option value="Wilsons Promontory">Wilsons Promontory</option>
+                        <option value="Port Welshpool">Port Welshpool</option>
+                        <option value="Fish Creek">Fish Creek</option>
+                        <option value="Foster">Foster</option>
+                        <option value="Yanakie">Yanakie</option>
+                        <option value="Venus Bay">Venus Bay</option>
+                        <option value="Tarra Valley">Tarra Valley</option>
+                    </select>
+                </div>
+                <div class="widget-field">
+                    <label><i class="fa-solid fa-calendar"></i> Check-in / Check-out</label>
+                    <input type="text" id="searchDates" value="Select Dates" readonly>
+                </div>
+                <div class="widget-field">
+                    <label><i class="fa-solid fa-user-group"></i> Guests</label>
+                    <select id="searchGuests">
+                        <option value="2">2 Adults (1 Room)</option>
+                        <option value="1">1 Adult (1 Room)</option>
+                        <option value="4">4 Adults (2 Rooms)</option>
+                        <option value="family">Family (2 Adults, 2 Children)</option>
+                    </select>
+                </div>
+                <button class="btn btn-accent btn-search" id="triggerBookingSearch">
+                    <i class="fa-solid fa-magnifying-glass"></i> Find Stays
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item"><i class="fa-solid fa-water"></i> <strong>50+</strong> Pristine Beaches</div>
+            <div class="stat-item"><i class="fa-solid fa-person-hiking"></i> <strong>100km+</strong> Scenic Walking Trails</div>
+            <div class="stat-item"><i class="fa-solid fa-utensils"></i> <strong>30+</strong> Local Eateries & Wineries</div>
+            <div class="stat-item"><i class="fa-solid fa-house-chimney-user"></i> <strong>120+</strong> Curated Stays</div>
+        </div>
+    </section>
+
+    <!-- Region Explorer / Towns -->
+    <section id="explore" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Prom Country Towns</h2>
+                <p>Each town across South Gippsland offers a unique character, from vibrant arts hubs to quiet coastal fishing villages.</p>
+            </div>
+            <div class="towns-grid">
+                <div class="town-card" onclick="filterByTown('Wilsons Promontory')">
+                    <div class="town-img" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="town-info">
+                        <h3>Wilsons Promontory</h3>
+                        <p>Wilderness, iconic granite mountains, and world-class coastal walks like Squeaky Beach.</p>
+                        <span class="explore-link">Explore Stays <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="town-card" onclick="filterByTown('Fish Creek')">
+                    <div class="town-img" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="town-info">
+                        <h3>Fish Creek</h3>
+                        <p>A vibrant creative arts village featuring galleries, quirky architecture, and great cafes.</p>
+                        <span class="explore-link">Explore Stays <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="town-card" onclick="filterByTown('Yanakie')">
+                    <div class="town-img" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="town-info">
+                        <h3>Yanakie</h3>
+                        <p>The gateway to the Prom with stunning panoramic views across Corner Inlet and farmland.</p>
+                        <span class="explore-link">Explore Stays <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="town-card" onclick="filterByTown('Port Welshpool')">
+                    <div class="town-img" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="town-info">
+                        <h3>Port Welshpool</h3>
+                        <p>Historic coastal town featuring the iconic Long Jetty and fresh local seafood.</p>
+                        <span class="explore-link">Explore Stays <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="map-section" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive South Gippsland Map</h2>
+                <p>Click categories below to filter beaches, walks, towns, and accommodation points of interest across the Prom Coast.</p>
+            </div>
+            
+            <div class="map-container-wrapper">
+                <!-- Map Filter Controls -->
+                <div class="map-filters">
+                    <button class="filter-btn active" data-category="all"><i class="fa-solid fa-layer-group"></i> All Points</button>
+                    <button class="filter-btn" data-category="accommodation"><i class="fa-solid fa-bed"></i> Accommodation</button>
+                    <button class="filter-btn" data-category="beaches"><i class="fa-solid fa-umbrella-beach"></i> Beaches</button>
+                    <button class="filter-btn" data-category="walks"><i class="fa-solid fa-person-hiking"></i> Walks & Trails</button>
+                    <button class="filter-btn" data-category="food"><i class="fa-solid fa-utensils"></i> Food & Cafe</button>
+                </div>
+
+                <!-- Interactive Simulated Map Canvas -->
+                <div class="map-viewbox" id="interactiveMap">
+                    <div class="map-bg-grid"></div>
+                    <div class="map-region-label">South Gippsland & Prom Coast</div>
+                    
+                    <!-- Dynamic Map Pins will be injected here via script.js -->
+                </div>
+                
+                <!-- Pin Detail Card Popup -->
+                <div class="map-popup-card" id="mapPopupCard">
+                    <button class="close-popup" id="closePopup"><i class="fa-solid fa-xmark"></i></button>
+                    <div id="popupContent">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Things to Do Section -->
+    <section id="things-to-do" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Things to See & Do</h2>
+                <p>Immerse yourself in nature, wildlife encounters, coastal adventures, and culinary trails.</p>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="activity-content">
+                        <span class="category-tag">Wildlife & Nature</span>
+                        <h3>Wombat & Kangaroo Spotting</h3>
+                        <p>Tidal River and surrounding grasslands are famous for evening wildlife encounters in their natural habitat.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="activity-content">
+                        <span class="category-tag">Hiking Trails</span>
+                        <h3>Mount Oberon Summit Walk</h3>
+                        <p>A rewarding hike offering breathtaking panoramic views over Tidal River, islands, and coastal inlets.</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="activity-content">
+                        <span class="category-tag">Food & Wine</span>
+                        <h3>Prom Country Food Trail</h3>
+                        <p>Taste artisan cheeses, organic honey, cool-climate wines, and paddock-to-plate farm gate treats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where to Stay / Booking.com Personalized Integration Section -->
+    <section id="stay" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Where to Stay in South Gippsland</h2>
+                <p>Hand-picked boutique stays, coastal cottages, and luxury retreats with instant secure booking via Booking.com.</p>
+            </div>
+
+            <!-- Accommodation Filter tabs -->
+            <div class="stay-filters">
+                <button class="stay-tab active" data-filter="all">All Properties</button>
+                <button class="stay-tab" data-filter="Wilsons Promontory">Wilsons Promontory</button>
+                <button class="stay-tab" data-filter="Fish Creek">Fish Creek</button>
+                <button class="stay-tab" data-filter="Yanakie">Yanakie</button>
+                <button class="stay-tab" data-filter="Port Welshpool">Port Welshpool</button>
+            </div>
+
+            <!-- Accommodation Grid -->
+            <div class="accommodation-grid" id="accommodationGrid">
+                <!-- Dynamically populated accommodation items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Planner / Newsletter CTA -->
+    <section id="planner" class="cta-section">
+        <div class="container cta-container">
+            <div class="cta-text">
+                <h2>Get the South Gippsland Travel Guide</h2>
+                <p>Receive local insider tips, hidden swimming spots, walking itineraries, and exclusive seasonal accommodation deals straight to your inbox.</p>
+            </div>
+            <form class="cta-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address" required id="newsletterEmail">
+                <button type="submit" class="btn btn-accent">Get Free Guide</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo footer-logo">
+                    <i class="fa-solid fa-mountain-sun"></i> Prom <span>Coast</span>
+                </a>
+                <p>Your premier independent guide to South Gippsland and Wilsons Promontory accommodation, attractions, and coastal experiences.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore Regions</h4>
+                <ul>
+                    <li><a href="#explore">Wilsons Promontory</a></li>
+                    <li><a href="#explore">Fish Creek</a></li>
+                    <li><a href="#explore">Yanakie & Inlet</a></li>
+                    <li><a href="#explore">Port Welshpool</a></li>
+                    <li><a href="#explore">Venus Bay</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#map-section">Interactive Map</a></li>
+                    <li><a href="#things-to-do">Walking Trails</a></li>
+                    <li><a href="#stay">Accommodation Deals</a></li>
+                    <li><a href="#">Advertising with Us</a></li>
+                    <li><a href="#">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Partner Disclosure</h4>
+                <p class="disclaimer-text">promcoast.com.au is an independent travel guide. We partner with Booking.com to help you secure the best available rates. When you book through our links, we may earn a small commission at no additional cost to you.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Prom Coast (promcoast.com.au). All rights reserved. Designed for South Gippsland Tourism.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Booking Modal (Personalized Booking Experience) -->
+    <div class="modal-backdrop" id="bookingModal">
+        <div class="modal-card">
+            <button class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header-img" id="modalImg" style="background-image: url('');">
+                <span id="modalBadge" class="modal-badge">Featured Stay</span>
+            </div>
+            <div class="modal-body">
+                <h3 id="modalTitle">Property Name</h3>
+                <p class="modal-location" id="modalLocation"><i class="fa-solid fa-location-dot"></i> Location</p>
+                <div class="modal-specs">
+                    <span><i class="fa-solid fa-star text-gold"></i> <strong id="modalRating">4.9</strong> (Review Score)</span>
+                    <span><i class="fa-solid fa-tag"></i> <strong id="modalPrice">$240</strong> / night</span>
+                </div>
+                <p id="modalDesc" class="modal-description">Experience the serene beauty of South Gippsland with direct access to coastal trails and stunning views.</p>
+                
+                <div class="booking-features-box">
+                    <h4><i class="fa-solid fa-shield-check text-green"></i> Why Book Through Prom Coast:</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Best Price Guarantee matched with Booking.com</li>
+                        <li><i class="fa-solid fa-check"></i> Free cancellation options available on most rooms</li>
+                        <li><i class="fa-solid fa-check"></i> Local insider guidebook included free with every booking</li>
+                    </ul>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="#" id="secureBookingBtn" target="_blank" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-lock"></i> Check Availability on Booking.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
